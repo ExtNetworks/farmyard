@@ -7,6 +7,17 @@ FarmYard is simple application that allows us to count our animals.
 
 The application is a Laravel 8 based application, and uses the JetStream UI.
 
+## Requirements
+This application is currently set to use a default installation of [Laravel Sail](https://laravel.com/docs/8.x/sail)
+
+Installations of:
+- MySQL 8
+- PHP 7.4+
+- Ngnix Web Server
+- NodeJS & NPM
+
+should be used if not in a docker environment (although this is encouraged for developement).
+
 ## Installation
 To install FarmYard, clone the repository to your system, then install the composer libraries:
 `composer install`
