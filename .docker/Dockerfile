@@ -1,21 +1,3 @@
-#FROM php:7.3-fpm
-#WORKDIR /var/www/api
-
-#MAINTAINER Jason Rout
-
-#COPY composer.json /var/www/api
-
-# Install Dependencies
-#RUN apt-get update && apt-get install -y \
-#    git \
-#    nodejs \
-#    zip \
-#    unzip \
-#    && curl -sL https://getcomposer.org/installer | php -- --install-dir /usr/bin --filename composer
-
-# Setup the application
-#RUN composer install
-
 FROM ubuntu:20.04 as builder
 
 LABEL maintainer="Taylor Otwell"
@@ -39,14 +21,14 @@ RUN apt-get update \
     && echo "deb http://ppa.launchpad.net/ondrej/php/ubuntu focal main" > /etc/apt/sources.list.d/ppa_ondrej_php.list \
     && apt-get update
 
-RUN apt-get install -y php7.4-cli php7.4-dev \
-       php7.4-pgsql php7.4-sqlite3 php7.4-gd \
-       php7.4-curl php7.4-memcached \
-       php7.4-imap php7.4-mysql php7.4-mbstring \
-       php7.4-xml php7.4-zip php7.4-bcmath php7.4-soap \
-       php7.4-intl php7.4-readline php7.4-pcov \
-       php7.4-msgpack php7.4-igbinary php7.4-ldap \
-       php7.4-redis php7.4-pdo \
+RUN apt-get install -y php8.1-cli php8.1-dev \
+       php8.1-pgsql php8.1-sqlite3 php8.1-gd \
+       php8.1-curl php8.1-memcached \
+       php8.1-imap php8.1-mysql php8.1-mbstring \
+       php8.1-xml php8.1-zip php8.1-bcmath php8.1-soap \
+       php8.1-intl php8.1-readline php8.1-pcov \
+       php8.1-msgpack php8.1-igbinary php8.1-ldap \
+       php8.1-redis php8.1-pdo \
     && php -r "readfile('http://getcomposer.org/installer');" | php -- --install-dir=/usr/bin/ --filename=composer
 
 RUN curl -sL https://deb.nodesource.com/setup_15.x | bash - \
@@ -60,7 +42,7 @@ RUN curl -sL https://deb.nodesource.com/setup_15.x | bash - \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
-RUN setcap "cap_net_bind_service=+ep" /usr/bin/php7.4
+RUN setcap "cap_net_bind_service=+ep" /usr/bin/php8.1
 
 FROM builder as theapp
 
@@ -69,7 +51,7 @@ RUN useradd -ms /bin/bash --no-user-group -g 1020 -u 1337 sail
 
 COPY start-container /usr/local/bin/start-container
 COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf
-COPY php.ini /etc/php/7.4/cli/conf.d/99-sail.ini
+COPY php.ini /etc/php/8.1/cli/conf.d/99-sail.ini
 RUN chmod +x /usr/local/bin/start-container
 
 EXPOSE 8000

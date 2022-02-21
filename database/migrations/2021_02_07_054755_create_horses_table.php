@@ -16,7 +16,7 @@ class CreateHorsesTable extends Migration
         Schema::create('horses', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-            $table->dateTime('amount');
+            $table->integer('amount');
         });
     }
 
