@@ -12,6 +12,7 @@ class SheepCounter extends Component
     public function mount()
     {
         $this->sheep = Sheep::first();
+        $this->price = $this->sheep->price;
     }
 
     public function render()
@@ -28,5 +29,18 @@ class SheepCounter extends Component
     public function decrement()
     {
         $this->sheep->decrement('amount');
+    }
+
+    public function updatePrice()
+    {
+        $this->validate([
+            'price' => 'integer'
+        ], [
+            'price.integer' => 'Please enter a valid price'
+        ]);
+
+        Sheep::first()->update([
+            'price' => $this->price
+        ]);
     }
 }

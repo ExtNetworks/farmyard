@@ -12,4 +12,6 @@ class Horse extends Model
     protected $casts = [
         'amount' => 'integer'
     ];
+
+    protected $fillable = ['price'];
 }

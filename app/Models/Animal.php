@@ -5,13 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Sheep extends Model
+class Animal extends Model
 {
     use HasFactory;
-
-    protected $casts = [
-        'amount' => 'integer'
-    ];
-
-    protected $fillable = ['price'];
 }

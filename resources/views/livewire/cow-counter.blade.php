@@ -6,7 +6,20 @@
         </svg>
         <!-- Icon from https://uxwing.com/cow-animal-face-icon/ -->
     </div>
-    <div class="text-3xl text-green-600 text-center mt-4">{{ $cow->amount }}</div>
+    <div class="text-3xl text-green-600 text-center mt-4">
+        Total: {{ $cow->amount }}
+        Worth: {{ $cow->amount * $cow->price}}
+    </div>
+    <div class="text-3xl text-green-600 text-center mt-4 mb-4">
+        <form wire:submit.prevent="updatePrice">
+            <span class="text-sm text-red-500"> @error('price') {{ $message }}@enderror</span><br/>
+            <input type="hidden" wire:model={{ $cow->id }} />
+            <input type="text" wire:model="price">
+            <button wire:click="updatePrice" class="inline-flex items-center px-4 py-2 bg-gray-800 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-gray-700 active:bg-gray-900 focus:outline-none focus:border-gray-900 focus:shadow-outline-gray disabled:opacity-25 transition ease-in-out duration-150'">
+                {{ __('Update price') }}
+            </button>
+        </form>
+    </div>
     <div class="flex justify-around">
         <button wire:click="increment" class="inline-flex items-center px-4 py-2 bg-gray-800 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-gray-700 active:bg-gray-900 focus:outline-none focus:border-gray-900 focus:shadow-outline-gray disabled:opacity-25 transition ease-in-out duration-150'">
             {{ __('Add Cow') }}

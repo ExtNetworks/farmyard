@@ -12,6 +12,7 @@ class HorseCounter extends Component
     public function mount()
     {
         $this->horse = Horse::first();
+        $this->price = $this->horse->price;
     }
 
     public function render()
@@ -27,5 +28,18 @@ class HorseCounter extends Component
     public function decrement()
     {
         $this->horse->decrement('amount');
+    }
+
+    public function updatePrice()
+    {
+        $this->validate([
+            'price' => 'integer'
+        ], [
+            'price.integer' => 'Please enter a valid price'
+        ]);
+
+        Horse::first()->update([
+            'price' => $this->price
+        ]);
     }
 }
