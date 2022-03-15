@@ -2,16 +2,16 @@
 
 namespace App\Http\Livewire;
 
-use App\Models\Horse;
+use App\Models\Animal;
 use Livewire\Component;
 
 class HorseCounter extends Component
 {
-    public Horse $horse;
+    public Animal $horse;
 
     public function mount()
     {
-        $this->horse = Horse::first();
+        $this->horse = Animal::where('name','=','Horses')->first();
     }
 
     public function render()
@@ -26,6 +26,8 @@ class HorseCounter extends Component
 
     public function decrement()
     {
-        $this->horse->decrement('amount');
+        if($this->horse->amount > 1){
+            $this->horse->decrement('amount');
+        }
     }
 }

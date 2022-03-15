@@ -2,16 +2,16 @@
 
 namespace App\Http\Livewire;
 
-use App\Models\Sheep;
+use App\Models\Animal;
 use Livewire\Component;
 
 class SheepCounter extends Component
 {
-    public Sheep $sheep;
+    public Animal $sheep;
 
     public function mount()
     {
-        $this->sheep = Sheep::first();
+        $this->sheep = Animal::where('name','=','Sheep')->first();
     }
 
     public function render()
@@ -22,11 +22,12 @@ class SheepCounter extends Component
     public function increment()
     {
         $this->sheep->increment('amount');
-        $this->sheep->increment('amount');
     }
 
     public function decrement()
     {
-        $this->sheep->decrement('amount');
+        if($this->sheep->amount > 1){
+            $this->sheep->decrement('amount');
+        }
     }
 }

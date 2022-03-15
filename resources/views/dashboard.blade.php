@@ -15,6 +15,7 @@
                 <livewire:sheep-counter></livewire:sheep-counter>
                 <livewire:cow-counter></livewire:cow-counter>
                 <livewire:horse-counter></livewire:horse-counter>
+                <livewire:pigs-counter></livewire:pigs-counter>
             </div>
         </div>
     </div>
