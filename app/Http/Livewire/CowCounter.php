@@ -26,6 +26,8 @@ class CowCounter extends Component
 
     public function decrement()
     {
-        $this->cow->decrement('amount');
+        if($this->cow->amount > 1){
+            $this->cow->decrement('amount');
+        }
     }
 }
