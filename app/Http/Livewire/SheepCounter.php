@@ -2,16 +2,16 @@
 
 namespace App\Http\Livewire;
 
-use App\Models\Sheep;
+use App\Models\Animal;
 use Livewire\Component;
 
 class SheepCounter extends Component
 {
-    public Sheep $sheep;
+    public Animal $sheep;
 
     public function mount()
     {
-        $this->sheep = Sheep::first();
+        $this->sheep = Animal::where('name','=','Sheep')->first();
     }
 
     public function render()
