@@ -22,7 +22,6 @@ class SheepCounter extends Component
     public function increment()
     {
         $this->sheep->increment('amount');
-        $this->sheep->increment('amount');
     }
 
     public function decrement()
