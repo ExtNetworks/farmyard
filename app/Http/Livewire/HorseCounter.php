@@ -26,6 +26,8 @@ class HorseCounter extends Component
 
     public function decrement()
     {
-        $this->horse->decrement('amount');
+        if($this->horse->amount > 1){
+            $this->horse->decrement('amount');
+        }
     }
 }

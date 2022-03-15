@@ -26,12 +26,24 @@ class SheepCounterTest extends TestCase
     /** @test */
     public function it_should_decrement_the_number_of_sheep()
     {
+        $sheep = Sheep::factory()->createOne(['amount' => 2]);
+        
+        $sheepCounter = new SheepCounter();
+        $sheepCounter->sheep = $sheep;
+        $sheepCounter->decrement();
+
+        $this->assertEquals(1, $sheep->fresh()->amount);
+    }
+
+    /** @test */
+    public function it_should_not_decrement_lower_than_one()
+    {
         $sheep = Sheep::factory()->createOne(['amount' => 1]);
         
         $sheepCounter = new SheepCounter();
         $sheepCounter->sheep = $sheep;
         $sheepCounter->decrement();
 
-        $this->assertEquals(0, $sheep->fresh()->amount);
+        $this->assertEquals(1, $sheep->fresh()->amount);
     }
 }
