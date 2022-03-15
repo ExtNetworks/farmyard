@@ -25,12 +25,25 @@ class HorseCounterTest extends TestCase
 
     public function it_should_decrement_the_number_of_horses()
     {
+        $horse = Horse::factory()->createOne(['amount' => 2]);
+        
+        $horseCounter = new HorseCounter();
+        $horseCounter->horse = $horse;
+        $horseCounter->decrement();
+
+        $this->assertEquals(1, $horse->fresh()->amount);
+    }
+
+    /** @test */
+    public function it_should_not_decrement_lower_than_one()
+    {
         $horse = Horse::factory()->createOne(['amount' => 1]);
         
         $horseCounter = new HorseCounter();
         $horseCounter->horse = $horse;
         $horseCounter->decrement();
 
-        $this->assertEquals(0, $horse->fresh()->amount);
+        $this->assertEquals(1, $horse->fresh()->amount);
     }
+
 }

@@ -1,4 +1,4 @@
-<div class="shadow-md bg-white rounded p-6 m-2">
+<div class="shadow-md bg-blue-300 rounded p-6 m-2">
     <div class="text-2x1 text-center font-bold border-b">Sheep</div>
     <div class="w-16 h-16 mx-auto my-4">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 98.42 122.88">
@@ -9,7 +9,7 @@
     <div class="text-3xl text-green-600 text-center mt-4">{{ $sheep->amount }}</div>
     <div class="flex justify-around">
         <button wire:click="increment" class="inline-flex items-center px-4 py-2 bg-gray-800 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-gray-700 active:bg-gray-900 focus:outline-none focus:border-gray-900 focus:shadow-outline-gray disabled:opacity-25 transition ease-in-out duration-150'">
-            {{ __('Add Sheep') }}
+            {{ __('Add Sheep') }}   
         </button>
         <button wire:click="decrement" class="ml-4 inline-flex items-center px-4 py-2 bg-gray-800 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-gray-700 active:bg-gray-900 focus:outline-none focus:border-gray-900 focus:shadow-outline-gray disabled:opacity-25 transition ease-in-out duration-150'">
             {{ __('Remove Shefp') }}
