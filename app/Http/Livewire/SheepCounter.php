@@ -26,6 +26,8 @@ class SheepCounter extends Component
 
     public function decrement()
     {
-        $this->sheep->decrement('amount');
+        if($this->sheep->amount > 1){
+            $this->sheep->decrement('amount');
+        }
     }
 }
