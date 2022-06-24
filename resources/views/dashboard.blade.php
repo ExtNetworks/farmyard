@@ -15,6 +15,7 @@
                 <livewire:sheep-counter></livewire:sheep-counter>
                 <livewire:cow-counter></livewire:cow-counter>
                 <livewire:horse-counter></livewire:horse-counter>
+                <livewire:pig-counter></livewire:pig-counter>
             </div>
 
             <livewire:modals.animal-sound-modal></livewire:modals.animal-sound-modal>
