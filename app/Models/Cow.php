@@ -12,6 +12,7 @@ class Cow extends Model
     public int $minCount = 0;
 
     protected $casts = [
-        'amount' => 'integer'
+        'amount' => 'integer',
+        'count' => 'integer',
     ];
 }

@@ -6,17 +6,17 @@ trait AnimalCounter
 {
     public function increase(): void
     {
-        $this->animal->increment('amount');
+        $this->animal->increment('count');
     }
 
     public function decrease(): void
     {
 
-        if ($this->animal->amount === $this->animal->minCount) {
+        if ($this->animal->count === $this->animal->minCount) {
             return;
         }
 
-        $this->animal->decrement('amount');
+        $this->animal->decrement('count');
 
     }
 }
