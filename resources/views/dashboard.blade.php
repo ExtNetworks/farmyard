@@ -10,12 +10,14 @@
             <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
                 <x-jet-welcome />
             </div>
-            
+
             <div class="md:flex mt-8 justify-around">
                 <livewire:sheep-counter></livewire:sheep-counter>
                 <livewire:cow-counter></livewire:cow-counter>
                 <livewire:horse-counter></livewire:horse-counter>
             </div>
+
+            <livewire:modals.animal-sound-modal></livewire:modals.animal-sound-modal>
         </div>
     </div>
 </x-app-layout>

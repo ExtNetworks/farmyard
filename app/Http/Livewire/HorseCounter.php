@@ -29,8 +29,6 @@ class HorseCounter extends Component
 
     public function decrement()
     {
-
         $this->decrease();
-
     }
 }

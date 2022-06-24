@@ -29,8 +29,6 @@ class SheepCounter extends Component
 
     public function decrement()
     {
-
         $this->decrease();
-
     }
 }

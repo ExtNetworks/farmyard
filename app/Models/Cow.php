@@ -10,6 +10,7 @@ class Cow extends Model
     use HasFactory;
 
     public int $minCount = 0;
+    public string $sound = 'Mooooo';
 
     protected $casts = [
         'amount' => 'integer',

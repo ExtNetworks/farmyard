@@ -10,6 +10,7 @@ class Sheep extends Model
     use HasFactory;
 
     public int $minCount = 0;
+    public string $sound = 'Baaaa baaa';
 
     protected $casts = [
         'amount' => 'integer',
