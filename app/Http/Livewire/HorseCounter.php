@@ -2,7 +2,7 @@
 
 namespace App\Http\Livewire;
 
-use App\Models\Horse;
+use App\Models\Animal;
 use App\Traits\AnimalCounter;
 use Livewire\Component;
 
@@ -10,11 +10,11 @@ class HorseCounter extends Component
 {
     use AnimalCounter;
 
-    public Horse $animal;
+    public Animal $animal;
 
     public function mount()
     {
-        $this->animal = Horse::first();
+         $this->animal = Animal::where('name', 'Horse')->first();
     }
 
     public function render()
