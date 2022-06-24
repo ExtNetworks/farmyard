@@ -3,15 +3,18 @@
 namespace App\Http\Livewire;
 
 use App\Models\Cow;
+use App\Traits\AnimalCounter;
 use Livewire\Component;
 
 class CowCounter extends Component
 {
-    public Cow $cow;
+    use AnimalCounter;
+
+    public Cow $animal;
 
     public function mount()
     {
-        $this->cow = Cow::first();
+        $this->animal = Cow::first();
     }
 
     public function render()
@@ -21,11 +24,13 @@ class CowCounter extends Component
 
     public function increment()
     {
-        $this->cow->increment('amount');
+        $this->increase();
     }
 
     public function decrement()
     {
-        $this->cow->decrement('amount');
+
+        $this->decrease();
+
     }
 }

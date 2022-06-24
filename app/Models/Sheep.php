@@ -9,6 +9,8 @@ class Sheep extends Model
 {
     use HasFactory;
 
+    public int $minCount = 0;
+
     protected $casts = [
         'amount' => 'integer'
     ];
