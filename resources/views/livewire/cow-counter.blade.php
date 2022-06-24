@@ -1,4 +1,4 @@
-<div class="shadow-md bg-white rounded p-6 m-2">
+<div class="shadow-md bg-red-500 rounded p-6 m-2">
     <div class="text-2x1 text-center font-bold border-b">Cows</div>
     <div class="w-16 h-16 mx-auto my-4">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 116.42 122.88">
