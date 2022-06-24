@@ -12,6 +12,7 @@
             </div>
 
             <div class="md:flex mt-8 justify-around">
+                {{--TODO refactor animal component--}}
                 <livewire:sheep-counter></livewire:sheep-counter>
                 <livewire:cow-counter></livewire:cow-counter>
                 <livewire:horse-counter></livewire:horse-counter>
